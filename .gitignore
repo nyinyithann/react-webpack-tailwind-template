@@ -1,0 +1,14 @@
+node_modules/*
+dist/*
+
+#idea folder
+.idea/
+/.idea/
+/.idea/modules.xml
+/.idea/vcs.xml
+
+.yarn
+
+.DS_Store
+
+nohup.out
