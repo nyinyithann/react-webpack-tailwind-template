@@ -7,7 +7,6 @@ dist/*
 /.idea/modules.xml
 /.idea/vcs.xml
 
-.yarn
 
 .DS_Store
 
