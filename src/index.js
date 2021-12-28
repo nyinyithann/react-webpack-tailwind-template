@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import '../style/main.css';
-import App from './components/app';
+import App from './app';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -11,4 +11,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+/* eslint-disable no-undef */
 module.hot.accept();
