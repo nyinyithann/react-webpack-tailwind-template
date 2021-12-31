@@ -2,7 +2,7 @@ import React from 'react';
 
 function Home() {
   return (
-    <div className="flex flex-col justify-center items-center content-center font-info text-base text-primary_600 py-10 text-center">
+    <div className="flex flex-col justify-center items-center content-center font-primary text-2xl text-primary_600 py-10 text-center">
       <span>Welcome to React Webpack template with TailwindCSS</span>
     </div>
   );

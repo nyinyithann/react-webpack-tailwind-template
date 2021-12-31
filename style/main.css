@@ -6,53 +6,9 @@
 @tailwind utilities;
 
 @layer components {
-  .navbar-button {
-    @apply focus:outline-none h-8 hover:border-b-2 hover:border-primary_900 mx-1;
-  }
-
-  .navbar-menu-text {
-    @apply py-5 px-3 text-primary_900;
-  }
-
   .theme-btn {
     @apply p-1 rounded-full h-8 w-8 md:h-6 md:w-6 flex items-center justify-center
-              shadow-lg shadow-primary_200 hover:ring-2 hover:ring-slate-300 focus:shadow-primary_600 focus:outline-none;
-  }
-
-  .theme-menu-opener {
-    @apply h-9 w-9 md:h-10 md:w-10 p-1 self-end
-                    bg-primary_transparent rounded-full border-primary_transparent
-                    hover:bg-primary_400 active:bg-primary_400 active:text-primary_500
-                    text-primary_600 focus:outline-none hover:text-primary_700
-                    flex justify-evenly items-center;
-  }
-
-  .theme-menu-internal-div {
-    @apply p-2 flex flex-1 flex-row flex-wrap gap-3
-                    justify-start;
-  }
-
-  .theme-menu-dropdown {
-    @apply flex flex-col origin-top-right absolute mt-4 w-[12rem] md:w-40 p-1
-                    border-[1px] border-primary_200 bg-primary_100 rounded focus:outline-none
-                    right-1 top-6 shadow-lg;
-  }
-
-  .icon {
-    @apply w-6 h-6 text-primary_500;
-  }
-
-  .icon-panel-container {
-    @apply flex-1 flex flex-col gap-1;
-  }
-
-  .icon-panel {
-    @apply rounded flex flex-row flex-wrap
-                    items-center justify-center flex-1 h-screen p-2 gap-2;
-  }
-
-  .icon-panel-header {
-    @apply border-b-[1px] border-primary_200 block text-base
-                    font-normal text-primary_600 mx-8 md:mx-12;
+            shadow-lg shadow-primary_200 hover:ring-2 hover:ring-primary_300
+            focus:shadow-primary_600 focus:outline-none;
   }
 }

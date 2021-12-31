@@ -9,12 +9,12 @@ function NavLink({ children, to, className }) {
     <button
       type="button"
       className={
-        match ? `navbar-button border-b-2 border-primary_900` : 'navbar-button'
+        match
+          ? `${className} bg-primary_900 text-white dark:bg-slate-500`
+          : className
       }
     >
-      <Link to={to} className={className}>
-        {children}
-      </Link>
+      <Link to={to}>{children}</Link>
     </button>
   );
 }

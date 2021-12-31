@@ -1,7 +1,8 @@
-import React, { useCallback } from 'react';
 import { Menu } from '@headlessui/react';
 import { ColorSwatchIcon } from '@heroicons/react/solid';
 import PropTypes from 'prop-types';
+import React, { useCallback } from 'react';
+import { ThemeSwitchContext } from '../providers/themeSwitchProvider';
 
 function ColorButton({ color, theme, onClick }) {
   return (
@@ -60,7 +61,8 @@ const themeList = [
   ],
 ];
 
-function ThemeMenu({ setTheme }) {
+function ThemeMenu() {
+  const setTheme = React.useContext(ThemeSwitchContext);
   const clickHandler = useCallback(
     (e) => {
       e.preventDefault();
@@ -71,18 +73,30 @@ function ThemeMenu({ setTheme }) {
 
   return (
     <Menu as="div" className="relative flex items-center text-left">
-      <Menu.Button className="flex flex-col items-center self-end justify-center flex-auto w-8 h-8 rounded-full bg-primary_transparent border-primary_transparent hover:bg-primary_400 active:bg-primary_400 active:text-primary_500 text-primary_600 focus:outline-none hover:text-primary_700 dark:bg-slate-900">
+      <Menu.Button
+        className="flex flex-col items-center self-end justify-center
+      flex-auto w-8 h-8 rounded-full bg-primary_transparent
+      border-primary_transparent hover:bg-primary_400 active:bg-primary_400
+      active:text-primary_500 text-primary_600 focus:outline-none
+      hover:text-primary_700 dark:hover:bg-slate-500"
+      >
         <ColorSwatchIcon className="self-center w-5 h-5 text-primary_900 dark:text-white" />
       </Menu.Button>
       <Menu.Items
         as="div"
-        className="theme-menu-dropdown dark:bg-slate-600 dark:border-slate-500"
+        className="flex flex-col origin-top-right absolute mt-4 w-[12rem]
+      md:w-40 p-1 border-[1px] border-primary_200 bg-primary_100 rounded
+      focus:outline-none right-1 top-6 shadow-lg;
+      dark:bg-slate-600 dark:border-slate-500"
       >
         <Menu.Item>
           <div className="z-10 flex flex-col">
             {themeList.map((x, i) => (
               /* eslint-disable react/no-array-index-key */
-              <div key={`${x.theme}_${i}`} className="theme-menu-internal-div">
+              <div
+                key={`${x.theme}_${i}`}
+                className="p-2 flex flex-1 flex-row flex-wrap gap-3 justify-start"
+              >
                 {x.map(({ color, theme }) => (
                   <ColorButton
                     key={color}
@@ -99,9 +113,5 @@ function ThemeMenu({ setTheme }) {
     </Menu>
   );
 }
-
-ThemeMenu.propTypes = {
-  setTheme: PropTypes.func.isRequired,
-};
 
 export default ThemeMenu;
