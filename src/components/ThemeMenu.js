@@ -69,7 +69,6 @@ function ThemeMenu() {
     },
     [setTheme]
   );
-  // <ColorSwatchIcon className="self-center w-5 h-5 text-primary_900 dark:text-white" />
 
   return (
     <Menu as="div" className="relative flex items-center text-left">

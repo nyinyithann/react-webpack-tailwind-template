@@ -1,10 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/NavBar';
+import { Navbar, ErrorBoundary, FallbackLoading } from './components';
 import useTheme from './hooks/useTheme';
 import ThemeSwitchProvider from './providers/themeSwitchProvider';
-import ErrorBoundary from './components/ErrorBoundry';
-import FallbackLoading from './components/FallbackLoading';
 
 const Home = lazy(() => import('./pages/home'));
 const About = lazy(() => import('./pages/about'));

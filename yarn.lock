@@ -1280,6 +1280,11 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
+"@nyinyithann/vec.js@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@nyinyithann/vec.js/-/vec.js-1.0.0.tgz#e25c22cad1a7029418bdc3cb6a26e360b1378d4f"
+  integrity sha512-GmXcBepQs66Zk0jKS31DkglD9bHGHhlsQnrVWK4RSW6NBGluNk1IQGkmS5NXDywQyoqvcYGvqgE+A0SY0vE+UA==
+
 "@polka/url@^1.0.0-next.20":
   version "1.0.0-next.21"
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"

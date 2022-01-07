@@ -15,6 +15,15 @@ module.exports = {
     chunkFilename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, '..', './dist'),
   },
+  /* resolve doesn't work. I just leave it here. */
+  resolve: {
+    extensions: ['.js'],
+    roots: [path.resolve(__dirname), '..', './src'],
+    alias: {
+      TheApp: path.resolve(__dirname, '..', './src/'),
+      Components: path.resolve(__dirname, '..', './src/components/'),
+    },
+  },
   optimization: {
     moduleIds: 'deterministic',
     runtimeChunk: 'single',
