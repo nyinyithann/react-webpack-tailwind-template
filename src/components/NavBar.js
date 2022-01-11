@@ -9,7 +9,7 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 function Navbar() {
   return (
-    <nav className="fixed inset-x-0 z-50 flex-1 py-1 shadow bg-primary_300 shadow-primary_200 dark:bg-slate-800 dark:text-white">
+    <nav className="fixed  inset-x-0 z-50 flex-1 py-1 shadow bg-primary_300 shadow-primary_200 dark:bg-slate-800 dark:text-white">
       <div className="px-2">
         <div className="flex items-center justify-between">
           <div className="flex space-x-2 items-center justify-center">

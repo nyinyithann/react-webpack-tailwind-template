@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NotFound = () => {
+function NotFound() {
   return (
     <div className="flex flex-col items-center pt-20 text-lg font-medium text-center text-slate-600">
       <div className="w-full h-0 pb-40 relative">
@@ -12,7 +12,7 @@ const NotFound = () => {
           frameBorder="0"
           className="absolute"
           allowFullScreen
-        ></iframe>
+        />
       </div>
       <p>
         <a href="https://giphy.com/gifs/thismorning-itv-this-morning-0s4qt8wXIkI2S6nqqp" />
@@ -26,6 +26,6 @@ const NotFound = () => {
       </p>
     </div>
   );
-};
+}
 
 export default NotFound;

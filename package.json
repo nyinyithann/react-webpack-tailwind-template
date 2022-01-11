@@ -61,7 +61,11 @@
   },
   "scripts": {
     "dashboard": "webpack-dashboard -- webpack serve --config build/webpack.js --env env=dev addon=dashboard",
-    "eslint": "eslint --config .eslintrc --fix 'build/*.js' 'build/**/*.js' 'src/*.{js,jsx}' 'src/**/*.{js,jsx}'",
+    "lint": "npx eslint --config .eslintrc --fix 'build/*.js' 'build/**/*.js' 'src/*.{js,jsx}' 'src/**/*.{js,jsx}'",
+    "lint:fix": "yarn lint -- --fix",
+    "prettier": "npx prettier 'build/*.js' 'build/**/*.js' 'src/*.{js,jsx}' 'src/**/*.{js,jsx}' --check",
+    "prettier:fix": "yarn prettier -- --write",
+    "format": "yarn prettier:fix && npm run lint:fix",
     "stylelint": "stylelint --config .stylelintrc.json --fix 'style/*.css' 'src/*.css' 'src/**/*.css' ",
     "build:prod": "TAILWIND_MODE=build NODE_ENV=production && webpack --config build/webpack.js --env env=prod",
     "build:dev": "TAILWIND_MODE=build NODE_ENV=development && webpack --config build/webpack.js --env env=dev",
