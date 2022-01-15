@@ -1,7 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// temp solution https://github.com/webpack-contrib/mini-css-extract-plugin/issues/896
+const MiniCssExtractPlugin = require('mini-css-extract-plugin').default;
 const CopyPlugin = require('copy-webpack-plugin');
 
 const isProductionMode = process.env.NODE_ENV === 'production';
@@ -15,13 +17,15 @@ module.exports = {
     chunkFilename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, '..', './dist'),
   },
-  /* resolve doesn't work. I just leave it here. */
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx'],
     roots: [path.resolve(__dirname), '..', './src'],
     alias: {
-      TheApp: path.resolve(__dirname, '..', './src/'),
-      Components: path.resolve(__dirname, '..', './src/components/'),
+      '@': path.resolve(__dirname, '..', './src/'),
+      '@Components': path.resolve(__dirname, '..', './src/components/'),
+      '@Hooks': path.resolve(__dirname, '..', './src/hooks/'),
+      '@Pages': path.resolve(__dirname, '..', './src/pages/'),
+      '@Providers': path.resolve(__dirname, '..', './src/providers/'),
     },
   },
   optimization: {
@@ -100,10 +104,6 @@ module.exports = {
         ],
       },
     ],
-  },
-
-  resolve: {
-    extensions: ['.js', '.jsx'],
   },
 
   plugins: [

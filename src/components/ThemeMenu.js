@@ -1,7 +1,7 @@
 import { Menu } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
-import { ThemeSwitchContext } from '../providers/themeSwitchProvider';
+import { ThemeSwitchContext } from '@Providers';
 
 function ColorButton({ color, theme, onClick }) {
   return (

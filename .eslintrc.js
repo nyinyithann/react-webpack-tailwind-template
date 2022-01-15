@@ -9,6 +9,7 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error'],
     'import/no-extraneous-dependencies': 0,
+    'import/no-unresolved': 0,
     'react/jsx-filename-extension': 0,
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies

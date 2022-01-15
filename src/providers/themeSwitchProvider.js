@@ -12,7 +12,7 @@ function ThemeSwitchProvider({ value, children }) {
 }
 
 ThemeSwitchProvider.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

@@ -1,8 +1,9 @@
+/* eslint-disable import/no-unresolved */
 import React, { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Navbar, ErrorBoundary, FallbackLoading } from './components';
-import useTheme from './hooks/useTheme';
-import ThemeSwitchProvider from './providers/themeSwitchProvider';
+import { Navbar, ErrorBoundary, FallbackLoading } from '@Components';
+import { useTheme } from '@Hooks';
+import { ThemeSwitchProvider } from '@Providers';
 
 const Home = lazy(() => import('./pages/home'));
 const About = lazy(() => import('./pages/about'));
