@@ -1,7 +1,6 @@
 import React from 'react';
-import { NavLink, ThemeMenu } from '@Components';
+import { NavLink, ThemeMenu, Logo } from '@Components';
 import resolveConfig from 'tailwindcss/resolveConfig';
-import Logo from './Logo';
 import tailwindConfig from '../../tailwind.config';
 
 const fullConfig = resolveConfig(tailwindConfig);
