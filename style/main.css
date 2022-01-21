@@ -8,7 +8,7 @@
 @layer components {
   .theme-btn {
     @apply p-1 rounded-full h-8 w-8 md:h-6 md:w-6 flex items-center justify-center
-            shadow-lg shadow-primary_200 hover:ring-2 hover:ring-primary_300
-            focus:shadow-primary_600 focus:outline-none;
+            shadow-lg shadow-200 hover:ring-2 hover:ring-300
+            focus:shadow-600 focus:outline-none;
   }
 }
