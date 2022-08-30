@@ -1,9 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
-// temp solution https://github.com/webpack-contrib/mini-css-extract-plugin/issues/896
-const MiniCssExtractPlugin = require('mini-css-extract-plugin').default;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const isProductionMode = process.env.NODE_ENV === 'production';
@@ -58,7 +56,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/i,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['swc-loader'],
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
@@ -76,7 +74,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        exclude: /node_modules/,
+        exclude: /node_modules\/?!(modern-normalize\)\/).*/,
         use: [
           {
             loader: isProductionMode

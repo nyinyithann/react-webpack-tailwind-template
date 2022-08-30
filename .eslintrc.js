@@ -1,9 +1,12 @@
 module.exports = {
+  root: true,
   parser: '@babel/eslint-parser',
   env: {
     browser: true,
     es6: true,
+    node: true,
   },
+  ignorePatterns: ['node_modules/*'],
   extends: ['eslint:recommended', 'airbnb', 'prettier'],
   plugins: ['react-hooks', 'prettier'],
   rules: {
