@@ -1,33 +1,30 @@
-/* eslint-disable import/no-unresolved */
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Navbar, ErrorBoundary, FallbackLoading } from '@Components';
-import { useTheme } from '@Hooks';
-import { ThemeSwitchProvider } from '@Providers';
 
-const Home = lazy(() => import('./pages/home'));
-const About = lazy(() => import('./pages/about'));
-const NotFound = lazy(() => import('./pages/notfound'));
+import Navbar from './components/NavBar';
+import useTheme from './hooks/useTheme';
+import About from './pages/About';
+import Home from './pages/Home';
+import NoMatch from './pages/NoMatch';
+import ThemeSwitchProvider from './providers/ThemeSwitchProvider';
 
 function App() {
-  const [theme, setTheme] = useTheme('theme-slate');
+  const [theme, setTheme] = useTheme('theme-blue');
   return (
-    <div className={`${theme} flex flex-col`}>
-      <ThemeSwitchProvider value={setTheme}>
-        <Navbar />
-      </ThemeSwitchProvider>
-      <div className="py-[56px] bg-white h-screen px-5 dark:bg-slate-500 dark:text-white">
-        <ErrorBoundary>
-          <Suspense fallback={<FallbackLoading />}>
+    <ThemeSwitchProvider value={{ theme, setTheme }}>
+      <div>
+        <div className={`${theme} flex flex-col dark:bg-slate-600`}>
+          <Navbar setTheme={setTheme} />
+          <div className="h-screen py-12 dark:bg-slate-600 md:py-14">
             <Routes>
               <Route index path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="*" element={<NoMatch />} />
             </Routes>
-          </Suspense>
-        </ErrorBoundary>
+          </div>
+        </div>
       </div>
-    </div>
+    </ThemeSwitchProvider>
   );
 }
 

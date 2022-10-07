@@ -1,16 +1,18 @@
 /* eslint-disable no-empty */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const THEME_KEY = 'ReactTailwindTemplateThemeKey';
+const THEME_KEY = 'gutenbooks_theme';
+const DEFAULT_THEME = 'theme-blue';
 
 const useTheme = (defaultTheme) => {
-  const [storedTheme, setStoredTheme] = useState(() => {
+  const [storedTheme, setStoredTheme] = useState(defaultTheme);
+
+  useEffect(() => {
     try {
-      return localStorage.getItem(THEME_KEY) ?? defaultTheme;
-    } catch {
-      return defaultTheme;
-    }
-  });
+      const theme = localStorage.getItem(THEME_KEY) ?? DEFAULT_THEME;
+      setStoredTheme(theme);
+    } catch {}
+  }, []);
 
   const setTheme = (value) => {
     try {

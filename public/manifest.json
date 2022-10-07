@@ -1,6 +1,6 @@
 {
-  "short_name": "React Tailwind",
-  "name": "React with Tailwind Template",
+  "short_name": "React Template",
+  "name": "React Template in JS, Webpack, and TailwindCSS",
   "icons": [
     {
       "src": "favicon.ico",

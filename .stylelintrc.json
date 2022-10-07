@@ -1,23 +1,16 @@
 {
-  "extends": "stylelint-config-standard",
-  "rules": {
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "extends",
-          "apply",
-          "tailwind",
-          "components",
-          "utilities",
-          "screen",
-          "layer",
-          "import"
+    "extends": "stylelint-config-sass-guidelines",
+    "rules": {
+        "at-rule-no-unknown": null,
+        "scss/at-rule-no-unknown": true,
+        "indentation": "tab",
+        "number-leading-zero": null,
+        "unit-allowed-list": [
+            "em",
+            "rem",
+            "s",
+            "vw",
+            "vh"
         ]
-      }
-    ],
-    "indentation": "tab",
-    "number-leading-zero": null,
-    "unit-allowed-list": ["em", "rem", "s", "vw", "vh"]
-  }
+    }
 }

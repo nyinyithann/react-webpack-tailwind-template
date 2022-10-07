@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import '../styles/main.css';
+
+import * as React from 'react';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import '../style/main.css';
-import App from './app';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import App from './App';
 
-/* eslint-disable no-undef */
+const containerId = 'root';
+
+const container = document.getElementById(containerId);
+if (container) {
+  const root = createRoot(container);
+  root.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+} else {
+  const div = document.createElement('div');
+  const text = document.createTextNode(
+    `Element wiht id '${containerId}' not found at 'index.tsx'.`
+  );
+  div.appendChild(text);
+  document.body.appendChild(div);
+}
+
 module.hot.accept();

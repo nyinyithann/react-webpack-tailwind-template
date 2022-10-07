@@ -1,4 +1,3 @@
-import propTypes from 'prop-types';
 import React from 'react';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
@@ -7,24 +6,16 @@ function NavLink({ children, to, className }) {
   const match = useMatch({ path: resolved.pathname, end: true });
   return (
     <button
-      type="button"
       className={
-        match ? `${className} bg-900 text-white dark:bg-slate-500` : className
+        match ? `navbar-button bg-400/60 dark:bg-slate-500` : 'navbar-button'
       }
+      type="button"
     >
-      <Link to={to}>{children}</Link>
+      <Link to={to} className={className}>
+        {children}
+      </Link>
     </button>
   );
 }
-
-NavLink.defaultProps = {
-  className: '',
-};
-
-NavLink.propTypes = {
-  children: propTypes.element.isRequired,
-  to: propTypes.string.isRequired,
-  className: propTypes.string,
-};
 
 export default NavLink;
