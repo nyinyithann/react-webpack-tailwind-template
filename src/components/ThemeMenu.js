@@ -69,7 +69,7 @@ function ThemeMenu() {
     <Menu as="div" className="relative z-50 flex items-center text-left">
       {({ open }) => (
         <>
-          <Menu.Button className="flex h-8 w-8 items-center justify-center rounded-full border-transparent bg-200 text-700 outline-none ring-0 saturate-150 hover:bg-400 hover:text-white dark:border-[1px] dark:bg-slate-400 dark:border-slate-400 dark:hover:bg-slate-700">
+          <Menu.Button className="flex h-8 w-8 items-center justify-center rounded-full border-transparent bg-200 text-700 outline-none ring-0 saturate-150 hover:bg-400 hover:text-white dark:border-[1px] dark:border-slate-400 dark:bg-slate-400 dark:hover:bg-slate-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 flex-1 pl-1 pt-1"

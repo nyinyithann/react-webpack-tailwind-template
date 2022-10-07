@@ -11,7 +11,7 @@ function Navbar() {
         <div className="flex items-center justify-between">
           <div className="flex space-x-2">
             <div className="rounded-full px-1 pt-1 shadow-md shadow-700 dark:bg-slate-400">
-              <Logo/>
+              <Logo />
             </div>
             <div className="hidden items-center md:flex">
               <span className="text-center font-brand text-lg text-900 drop-shadow-2xl dark:text-slate-400">
