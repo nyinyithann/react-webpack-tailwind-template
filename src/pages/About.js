@@ -31,7 +31,7 @@ function About() {
             className="inline text-center font-sans text-xl text-800 underline dark:text-slate-100"
             href="https://github.com/nyinyithann/react-webpack-tailwind-template"
           >
-            GitHub Reposistory
+            GitHub Repository
           </a>
         </div>
         <div className="pt-2 font-sans text-xl">
