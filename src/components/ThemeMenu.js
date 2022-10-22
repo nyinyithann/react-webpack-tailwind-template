@@ -4,42 +4,60 @@ import React, { Fragment, useCallback } from 'react';
 import { ThemeSwitchContext } from '../providers/ThemeSwitchProvider';
 
 const themeList = [
-  [
-    { color: '#000000', theme: 'dark' },
-    { color: '#94A3B8', theme: 'theme-slate' },
-    { color: '#A3A3A3', theme: 'theme-neutral' },
-    { color: '#cccccc', theme: 'theme-lightgray' },
-  ],
-  [
-    { color: '#FB7185', theme: 'theme-rose' },
-    { color: '#F472B6', theme: 'theme-pink' },
-    { color: '#ff9494', theme: 'theme-monalisa' },
-    { color: '#cf9068', theme: 'theme-coffee' },
-  ],
-  [
-    { color: '#FB923C', theme: 'theme-orange' },
-    { color: '#b2ad55', theme: 'theme-olive' },
-    { color: '#FACC15', theme: 'theme-yellow' },
-    { color: '#e8e121', theme: 'theme-sunflower' },
-  ],
-  [
-    { color: '#4ADE80', theme: 'theme-green' },
-    { color: '#34D399', theme: 'theme-emerald' },
-    { color: '#2DD4BF', theme: 'theme-teal' },
-    { color: '#A3E635', theme: 'theme-lime' },
-  ],
-  [
-    { color: '#60A5FA', theme: 'theme-blue' },
-    { color: '#38BDF8', theme: 'theme-sky' },
-    { color: '#22D3EE', theme: 'theme-cyan' },
-    { color: '#a2b3d7', theme: 'theme-polo' },
-  ],
-  [
-    { color: '#818CF8', theme: 'theme-indigo' },
-    { color: '#A78BFA', theme: 'theme-violet' },
-    { color: '#C084FC', theme: 'theme-purple' },
-    { color: '#E879F9', theme: 'theme-fuchsia' },
-  ],
+  {
+    category: 'gray',
+    themes: [
+      { color: '#000000', name: 'dark' },
+      { color: '#94A3B8', name: 'theme-slate' },
+      { color: '#A3A3A3', name: 'theme-neutral' },
+      { color: '#cccccc', name: 'theme-lightgray' },
+    ],
+  },
+  {
+    category: 'rose',
+    themes: [
+      { color: '#FB7185', name: 'theme-rose' },
+      { color: '#F472B6', name: 'theme-pink' },
+      { color: '#ff9494', name: 'theme-monalisa' },
+      { color: '#cf9068', name: 'theme-coffee' },
+    ],
+  },
+  {
+    category: 'orange',
+    themes: [
+      { color: '#FB923C', name: 'theme-orange' },
+      { color: '#b2ad55', name: 'theme-olive' },
+      { color: '#FACC15', name: 'theme-yellow' },
+      { color: '#e8e121', name: 'theme-sunflower' },
+    ],
+  },
+  {
+    category: 'green',
+    themes: [
+      { color: '#4ADE80', name: 'theme-green' },
+      { color: '#34D399', name: 'theme-emerald' },
+      { color: '#2DD4BF', name: 'theme-teal' },
+      { color: '#A3E635', name: 'theme-lime' },
+    ],
+  },
+  {
+    category: 'blue',
+    themes: [
+      { color: '#60A5FA', name: 'theme-blue' },
+      { color: '#38BDF8', name: 'theme-sky' },
+      { color: '#22D3EE', name: 'theme-cyan' },
+      { color: '#a2b3d7', name: 'theme-polo' },
+    ],
+  },
+  {
+    category: 'indigo',
+    themes: [
+      { color: '#818CF8', name: 'theme-indigo' },
+      { color: '#A78BFA', name: 'theme-violet' },
+      { color: '#C084FC', name: 'theme-purple' },
+      { color: '#E879F9', name: 'theme-fuchsia' },
+    ],
+  },
 ];
 
 function ColorButton({ color, theme, onClick }) {
@@ -47,7 +65,9 @@ function ColorButton({ color, theme, onClick }) {
     <button
       type="button"
       aria-label="color"
-      className="theme-btn"
+      className="flex h-8 w-8 items-center justify-center rounded-full p-1 shadow shadow-500
+              hover:ring-2 hover:ring-slate-300 focus:shadow-600 focus:outline-none dark:shadow-xl
+              dark:shadow-gray-800 md:h-6 md:w-6"
       data-theme={theme}
       style={{ backgroundColor: color }}
       onClick={onClick}
@@ -59,7 +79,7 @@ function ThemeMenu() {
   const { setTheme } = React.useContext(ThemeSwitchContext);
   const clickHandler = useCallback(
     (e) => {
-      e.preventDefault();
+      // e.preventDefault();
       setTheme(e.target.getAttribute('data-theme'));
     },
     [setTheme]
@@ -86,29 +106,25 @@ function ThemeMenu() {
           {open && (
             <Menu.Items
               as="div"
-              className="absolute right-1 top-6 mt-4 flex w-[12rem] origin-top-right
-            flex-col rounded bg-500 shadow-md focus:outline-none dark:border-[1px] dark:border-slate-500 dark:bg-slate-600  md:w-40"
+              className="absolute right-1 top-6 mt-4 flex w-[12rem] origin-top-right flex-col rounded bg-500 shadow-md focus:outline-none dark:border-[1px] dark:border-slate-500 dark:bg-slate-600  md:w-40"
             >
-              <Menu.Item as={Fragment}>
-                <div className="z-10 flex flex-col rounded bg-300/80 p-1">
-                  {themeList.map((x, i) => (
-                    /* eslint-disable react/no-array-index-key */
-                    <div
-                      key={`${x.theme}_${i}`}
+              {themeList.map(({ category, themes }) => (
+                <div key={category} className="z-10 flex bg-300/80">
+                  {themes.map(({ color, name }) => (
+                    <Menu.Item
+                      key={name}
+                      as="div"
                       className="flex flex-1 flex-row flex-wrap justify-start gap-3 p-2"
                     >
-                      {x.map(({ color, theme }) => (
-                        <ColorButton
-                          key={color}
-                          color={color}
-                          theme={theme}
-                          onClick={clickHandler}
-                        />
-                      ))}
-                    </div>
+                      <ColorButton
+                        color={color}
+                        theme={name}
+                        onClick={clickHandler}
+                      />
+                    </Menu.Item>
                   ))}
                 </div>
-              </Menu.Item>
+              ))}
             </Menu.Items>
           )}
         </>

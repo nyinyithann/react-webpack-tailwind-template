@@ -33,8 +33,8 @@ module.exports = {
       fontFamily: {
         nav: ['Oswald'],
         brand: ['Pacifico'],
-        booktitle: ['Merriweather'],
-        bookinfo: ['Lato'],
+        title: ['Merriweather'],
+        general: ['Lato'],
       },
       textColor: {
         transparent: 'var(--color-primary-transparent)',
@@ -100,6 +100,27 @@ module.exports = {
         700: withOpacityValue('--color-primary-700'),
         800: withOpacityValue('--color-primary-800'),
         900: withOpacityValue('--color-primary-900'),
+      },
+      keyframes: {
+        spin_infinity: {
+          '0%': {
+            'stroke-dasharray': '1, 347',
+            'stroke-dashoffset': 75,
+          },
+          '25%, 75%': {
+            'stroke-dasharray': '17, 330',
+          },
+          '50%': {
+            'stroke-dasharray': '1, 347',
+          },
+          '100%': {
+            'stroke-dasharray': '1, 347',
+            'stroke-dashoffset': '423',
+          },
+        },
+      },
+      animation: {
+        loading_spin_infinity: 'spin_infinity 1.4s linear infinite',
       },
     },
   },

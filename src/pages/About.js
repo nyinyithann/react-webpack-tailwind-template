@@ -20,7 +20,7 @@ function AuthorLink({ link, site, title }) {
 function About() {
   return (
     <div className="flex h-full flex-col items-center justify-center gap-2 text-center font-mono text-600">
-      <div className="-mt-40">
+      <div className="m-auto">
         <h1 className="font-sans text-2xl font-bold text-900 dark:text-slate-100">
           JavaScript React Template with Webpack and TailwindCSS
         </h1>
